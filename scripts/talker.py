@@ -7,6 +7,7 @@
 # Distributed under terms of the MIT license.
 
 import rospy
+import random
 from geometry_msgs.msg import Twist
 
 def talker():
@@ -16,7 +17,7 @@ def talker():
   while not rospy.is_shutdown():
     msg = Twist()
     msg.linear.x = 2.0
-    msg.angular.z = 1.8
+    msg.angular.z = random.uniform(-5.0, 5.0)
     rospy.loginfo("Drunk walking!!!")
     pub.publish(msg)
     rate.sleep()
