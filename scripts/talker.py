@@ -16,9 +16,9 @@ def talker():
   rate = rospy.Rate(10)  # 10 Hz
   while not rospy.is_shutdown():
     msg = Twist()
-    msg.linear.x = 2.0
+    msg.linear.x = random.uniform(0.0, 3.0)
     msg.angular.z = random.uniform(-5.0, 5.0)
-    rospy.loginfo("Drunk walking!!!")
+    rospy.loginfo("Drunk walking: Speed = %f and angle = %s" % (msg.linear.x, msg.angular.z))
     pub.publish(msg)
     rate.sleep()
 
